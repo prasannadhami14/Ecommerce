@@ -1,0 +1,31 @@
+
+{% extends "../base.html"%}
+{%load static%}
+{%block title%}
+<title>All products</title>
+{% endblock title%}
+
+{%block content%}
+<div class="container">
+    {%if products%}
+    <div class="row">
+    {%for product in products%}
+      <div class="col">
+        <div class="card" style="width: 15rem;">
+            <img src="{{product.image.url}}" class="card-img-top" alt="{{product.name}}">
+            <div class="card-body">
+              <h5 class="card-title">{{product.name}}</h5>
+              <p class="card-text">{{product.description}}</p>
+              <p class="card-text"> Rs {{product.price}}</p>
+              <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+          </div>
+
+      </div>
+    {%endfor%}
+    </div>
+    {%else%}
+        <h3 class="text-center">No products available !!!!</h3>
+    {%endif%}
+  </div>
+{%endblock content%}
