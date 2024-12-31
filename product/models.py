@@ -17,7 +17,7 @@ class Product(models.Model):
     name=models.CharField(max_length=100,null=True)
     description=models.TextField(blank=True)
     quantity=models.IntegerField(default=0,null=False)
-    image=models.ImageField(upload_to="media/uploaded_img/",blank=True,null=True)
+    image=models.ImageField(upload_to="products_img/",blank=True,null=True)
     price= models.DecimalField(default=0,max_digits=12, decimal_places=2)
     created_at=models.DateTimeField(null=True, auto_now_add=True)
     updated_at=models.DateTimeField(null=True, auto_now=True)

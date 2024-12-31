@@ -1,31 +1,35 @@
-
 {% extends "../base.html"%}
 {%load static%}
 {%block title%}
 <title>All products</title>
 {% endblock title%}
-
 {%block content%}
-<div class="container">
-    {%if products%}
-    <div class="row">
-    {%for product in products%}
-      <div class="col">
-        <div class="card" style="width: 15rem;">
-            <img src="{{product.image.url}}" class="card-img-top" alt="{{product.name}}">
-            <div class="card-body">
-              <h5 class="card-title">{{product.name}}</h5>
-              <p class="card-text">{{product.description}}</p>
-              <p class="card-text"> Rs {{product.price}}</p>
-              <a href="#" class="btn btn-primary">Add to Cart</a>
-            </div>
-          </div>
 
-      </div>
-    {%endfor%}
-    </div>
-    {%else%}
-        <h3 class="text-center">No products available !!!!</h3>
-    {%endif%}
-  </div>
+
+
+        {%if products%}
+        <div class="row m-5">
+            {%for product in products%}
+            
+            <div class="col-sm-3">
+                <div class="thumb-wrapper">
+                    <div class="img-box">
+                       <a href="{% url 'product:product-details' product.slug%}">
+                        <img src="{{product.image.url}}" class="img-fluid" alt="{{product.name}}">
+                    	</a>								
+                    </div>
+                    <div class="thumb-content">
+                        <h4>{{product.name}}</h4>									
+                        <p class="item-price"><b>Rs. {{product.price}}</b></p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>						
+                </div>
+            </div>
+   
+{%endfor%}
+        </div>
+{%else%}
+
+<h3 class="text-center">No products available !!!!</h3>
+{%endif%}
 {%endblock content%}
