@@ -21,7 +21,7 @@ class Product(models.Model):
     price= models.DecimalField(default=0,max_digits=12, decimal_places=2)
     created_at=models.DateTimeField(null=True, auto_now_add=True)
     updated_at=models.DateTimeField(null=True, auto_now=True)
-    slug=models.SlugField(default="",unique=True,null=False)
+    slug=models.SlugField(default="",unique=True,null=True)
 
     def save(self,*args, **kwargs):
         self.slug=slugify(self.name)+ '-' + uuid.uuid4().hex[:4]

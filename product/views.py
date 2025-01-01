@@ -12,7 +12,7 @@ class ProductViewSet(viewsets.ModelViewSet):
    serializer_class=ProductSerializers
 
 def product_page(request):
-   products=Product.objects.all()
+   products=Product.objects.all().order_by('-created_at')
    product_det={
       "products":products,
    }
