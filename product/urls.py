@@ -2,7 +2,7 @@ from django.urls import path,include
 from product.views import ProductViewSet,CategoryViewSet
 from rest_framework import routers
 from . import views
-app_name='product'
+app_name='productApp'
 
 router=routers.DefaultRouter()
 router.register(r'category',CategoryViewSet)

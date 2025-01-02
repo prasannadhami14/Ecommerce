@@ -6,8 +6,8 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 text-secondary">Daily Deals</a></li>
-        <li><a href="{% url 'product:product-page'%}" class="nav-link px-2 text-white">Product</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">Daily Deals</a></li>
+        <li><a href="{% url 'productApp:product-page'%}" class="nav-link px-2 text-white">Product</a></li>
         <li><a href="#" class="nav-link px-2 text-white">Cart</a></li>
         <li><a href="#" class="nav-link px-2 text-white">Return & Orders</a></li>
         <li><a href="#" class="nav-link px-2 text-white">Contact</a></li>
@@ -19,14 +19,15 @@
 
       <div class="text-end">
         {% if user.is_authenticated%}
-        <small>{{user.username}}</small>
-        <button type="button" class="btn btn-outline-light me-2">Logout</button>
+          <span>{{user.username}}</span>
+          <button type="button" onclick="location.href='{% url 'userApp:logout-user'%}';" class="btn btn-outline-light me-2">Logout</button>
 
         {%else%}
-        <button onclick="location.href='{% url 'userApp:login-user'%}';" type="button" class="btn btn-outline-light me-2">Login</button>
-        <button onclick="location.href='{% url 'userApp:register-user'%}';" type="button" class="btn btn-warning">Sign-up</button>
-              </div>
+          <button onclick="location.href='{% url 'userApp:login-user'%}';" type="button" class="btn btn-outline-light me-2">Login</button>
+          <button onclick="location.href='{% url 'userApp:register-user'%}';" type="button" class="btn btn-warning">Sign-up</button>
+                
         {%endif%}
+      </div>
     </div>
   </div>
 </header>
